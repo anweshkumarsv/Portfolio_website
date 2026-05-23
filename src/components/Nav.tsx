@@ -1,0 +1,38 @@
+import { motion } from "motion/react";
+import resumePdf from "@/assets/resume_anwesh_kumar_s_v (2).pdf";
+
+export function Nav() {
+  return (
+    <motion.header
+      initial={{ y: -10, opacity: 0 }}
+      animate={{ y: 0, opacity: 1 }}
+      transition={{ duration: 0.8, delay: 0.2 }}
+      className="absolute top-0 left-0 right-0 z-30 px-8 md:px-14 py-7"
+    >
+      <div className="flex items-center justify-between">
+        <a href="#top" className="text-[11px] tracking-[0.3em] uppercase">
+          Anwesh
+        </a>
+
+        <nav className="flex items-center gap-6 md:gap-8 text-[11px] tracking-[0.25em] uppercase text-foreground/70">
+          {[
+            ["Work", "#work"],
+            ["About", "#about"],
+            ["Contact", "#contact"],
+          ].map(([l, h]) => (
+            <a key={h} href={h} className="link-underline hover:text-foreground transition-colors">
+              {l}
+            </a>
+          ))}
+          <a
+            href={resumePdf}
+            download="Resume_Anwesh_Kumar_S_V.pdf"
+            className="link-underline text-accent font-bold hover:text-accent-coral transition-colors"
+          >
+            Resume
+          </a>
+        </nav>
+      </div>
+    </motion.header>
+  );
+}
