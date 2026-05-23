@@ -8,8 +8,8 @@ export default defineConfig({
   plugins: [
     tsconfigPaths(),
     tanstackStart({
-      server: {
-        preset: "netlify",
+      prerender: {
+        enabled: true,
       },
     }),
     react(),
