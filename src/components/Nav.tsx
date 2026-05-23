@@ -1,5 +1,4 @@
 import { motion } from "motion/react";
-import resumePdf from "@/assets/resume_anwesh_kumar_s_v (2).pdf";
 
 export function Nav() {
   return (
@@ -7,14 +6,14 @@ export function Nav() {
       initial={{ y: -10, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, delay: 0.2 }}
-      className="absolute top-0 left-0 right-0 z-30 px-8 md:px-14 py-7"
+      className="absolute top-0 left-0 right-0 z-30 px-5 md:px-14 py-7"
     >
-      <div className="flex items-center justify-between">
-        <a href="#top" className="text-[11px] tracking-[0.3em] uppercase">
+      <div className="flex flex-wrap items-center justify-between gap-y-4">
+        <a href="#top" className="text-[11px] tracking-[0.3em] uppercase shrink-0">
           Anwesh
         </a>
 
-        <nav className="flex items-center gap-6 md:gap-8 text-[11px] tracking-[0.25em] uppercase text-foreground/70">
+        <nav className="flex items-center gap-3.5 sm:gap-6 md:gap-8 text-[9px] sm:text-[11px] tracking-[0.2em] sm:tracking-[0.25em] uppercase text-foreground/70">
           {[
             ["Work", "#work"],
             ["About", "#about"],
@@ -25,7 +24,7 @@ export function Nav() {
             </a>
           ))}
           <a
-            href={resumePdf}
+            href="/Resume_Anwesh_Kumar_S_V.pdf"
             download="Resume_Anwesh_Kumar_S_V.pdf"
             className="link-underline text-accent font-bold hover:text-accent-coral transition-colors"
           >

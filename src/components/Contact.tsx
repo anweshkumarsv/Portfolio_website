@@ -88,7 +88,7 @@ export function Contact() {
           </motion.h2>
         </div>
 
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 pt-10 border-t hairline">
+        <div className="mt-16 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-x-8 gap-y-12 pt-10 border-t hairline">
           {[
             ["Email", "anweshkumarsv@gmail.com", "mailto:anweshkumarsv@gmail.com", "accent", false],
             ["Phone", "+91 89700 32228", "tel:+918970032228", "accent-coral", false],

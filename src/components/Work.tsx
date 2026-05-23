@@ -53,15 +53,15 @@ export function Work() {
   return (
     <section id="work" ref={ref} className="px-8 md:px-14 py-24 md:py-32 border-t hairline overflow-hidden">
       {/* SECTION 1: SELECTED WORK */}
-      <motion.div style={{ x: labelX }} className="mb-16 flex items-center justify-between select-none">
-        <h2 className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground flex items-center gap-1">
+      <motion.div style={{ x: labelX }} className="mb-16 flex flex-wrap items-baseline justify-between gap-4 select-none">
+        <h2 className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground flex flex-wrap items-center gap-x-2 gap-y-2.5">
           <span className="text-accent-coral">[</span> Selected Work{" "}
           <span className="text-accent-coral">]</span>
           <a 
             href="https://github.com/anweshkumarsv" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="inline-flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-display font-black text-accent hover:text-accent-coral pb-0.5 border-b border-accent/25 hover:border-accent-coral/50 transition-all duration-300 ml-4 pointer-events-auto cursor-none select-none hover:scale-105 active:scale-95 group"
+            className="inline-flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-display font-black text-accent hover:text-accent-coral pb-0.5 border-b border-accent/25 hover:border-accent-coral/50 transition-all duration-300 sm:ml-4 pointer-events-auto cursor-none select-none hover:scale-105 active:scale-95 group"
             title="View all projects on GitHub (anweshkumarsv)"
           >
             <svg className="w-3.5 h-3.5 text-accent group-hover:text-accent-coral transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -122,7 +122,7 @@ export function Work() {
             >
               <div className="pb-8 pt-2 pl-[calc(16.666667%+1rem)] md:pl-[calc(8.333333%+1rem)] pr-4 grid md:grid-cols-12 gap-6 border-t border-dashed border-border/10">
                 <div className="md:col-span-8 space-y-4 pt-4">
-                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed select-text">
+                  <p className="text-sm md:text-base text-muted-foreground leading-relaxed select-text text-justify md:text-left">
                     {p.detailedDesc}
                   </p>
                 </div>

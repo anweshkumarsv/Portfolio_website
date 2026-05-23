@@ -47,7 +47,7 @@ export function Hero() {
             <h2 className="text-3xl md:text-5xl font-display leading-[1.1] tracking-tight text-foreground">
               Building <span className="text-accent-coral">intelligent ML/DL systems</span>, AI models, and deep data insights.
             </h2>
-            <p className="text-base text-muted-foreground max-w-lg leading-relaxed pt-2">
+            <p className="text-base text-muted-foreground max-w-lg leading-relaxed pt-2 text-justify md:text-left">
               Turning complex real-world data into actionable insights, robust machine learning architectures, and deep learning solutions. Passionate about AI integration and data-driven systems engineering.
             </p>
           </div>
