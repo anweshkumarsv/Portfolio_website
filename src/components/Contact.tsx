@@ -1,6 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
-import resumePdf from "@/assets/resume_anwesh_kumar_s_v (2).pdf";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const icons: Record<string, React.ReactNode> = {
   Email: (
@@ -49,11 +49,14 @@ export function Contact() {
     offset: ["start end", "end start"],
   });
   const labelX = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+  
+  const isMobile = useIsMobile();
+  const headerX = isMobile ? 0 : labelX;
 
   return (
     <section id="contact" ref={ref} className="px-8 md:px-14 py-28 md:py-40 border-t hairline overflow-hidden">
       <div className="max-w-3xl">
-        <motion.div style={{ x: labelX }} className="mb-10 block select-none">
+        <motion.div style={{ x: headerX }} className="mb-10 block select-none">
           <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
             <span className="text-accent-citrus">[</span> Get in touch{" "}
             <span className="text-accent-citrus">]</span>
@@ -95,7 +98,7 @@ export function Contact() {
             ["Location", "Bengaluru, IN", "#", "accent-moss", false],
             ["LinkedIn", "www.linkedin.com/in/anwesh-kumar-sv", "https://www.linkedin.com/in/anwesh-kumar-sv", "accent-violet", false],
             ["GitHub", "https://github.com/anweshkumarsv", "https://github.com/anweshkumarsv", "accent-citrus", false],
-            ["Resume", "Download PDF", resumePdf, "accent-coral", true],
+            ["Resume", "Download PDF", "/Resume_Anwesh_Kumar_S_V.pdf", "accent-coral", true],
           ].map(([k, v, href, c, isDownload], i) => (
             <motion.div
               key={k as string}

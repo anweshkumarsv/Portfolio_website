@@ -1,5 +1,5 @@
-import { motion, useScroll, useTransform } from "motion/react";
 import { useRef } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const stats = [
   { n: "1st", l: "Best Social Project", c: "accent-coral" },
@@ -85,6 +85,9 @@ export function About() {
     offset: ["start end", "end start"],
   });
   const labelX = useTransform(scrollYProgress, [0, 1], [-50, 50]);
+  
+  const isMobile = useIsMobile();
+  const headerX = isMobile ? 0 : labelX;
 
   // Dynamic vertical line draw scroll animation
   const { scrollYProgress: lineScroll } = useScroll({
@@ -102,7 +105,7 @@ export function About() {
       <div className="grid md:grid-cols-12 gap-10 md:gap-16">
         {/* LEFT COLUMN: Header & Key Metrics Sidebar (col-span-4) */}
         <div className="md:col-span-4 space-y-12">
-          <motion.div style={{ x: labelX }} className="select-none">
+          <motion.div style={{ x: headerX }} className="select-none">
             <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
               <span className="text-accent-violet">[</span> About{" "}
               <span className="text-accent-violet">]</span>
@@ -239,10 +242,12 @@ export function About() {
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7, delay: gi * 0.1, ease: [0.65, 0, 0.35, 1] }}
-                  className="flex flex-wrap items-center gap-4 text-base"
+                  className="grid grid-cols-[auto_1fr] gap-4 md:gap-5 text-base items-start"
                 >
-                  <span className={`inline-block h-2.5 w-2.5 rounded-full bg-${g.c}`} />
-                  <div className="flex flex-wrap gap-x-6 gap-y-3">
+                  <div className="flex items-center justify-center pt-1.5 md:pt-2">
+                    <span className={`inline-block h-2.5 w-2.5 rounded-full bg-${g.c}`} />
+                  </div>
+                  <div className="flex flex-wrap gap-x-5 gap-y-2.5 md:gap-x-6 md:gap-y-3">
                     {g.items.map((s) => (
                       <motion.span
                         key={s}

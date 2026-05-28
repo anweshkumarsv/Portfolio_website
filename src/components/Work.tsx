@@ -1,5 +1,6 @@
 import { motion, useScroll, useTransform } from "motion/react";
 import { useRef, useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 import githubIcon from "../assets/github.png";
 
 const accents = ["accent-coral", "accent", "accent-citrus", "accent-moss", "accent-violet"];
@@ -50,18 +51,30 @@ export function Work() {
   const labelX = useTransform(scrollYProgress, [0, 1], [-50, 50]);
   const labelX2 = useTransform(scrollYProgress, [0, 1], [50, -50]); // Elegantly slides in opposite direction!
 
+  const isMobile = useIsMobile();
+  const headerX = isMobile ? 0 : labelX;
+  const headerX2 = isMobile ? 0 : labelX2;
+
   return (
     <section id="work" ref={ref} className="px-8 md:px-14 py-24 md:py-32 border-t hairline overflow-hidden">
       {/* SECTION 1: SELECTED WORK */}
-      <motion.div style={{ x: labelX }} className="mb-16 flex flex-wrap items-baseline justify-between gap-4 select-none">
-        <h2 className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground flex flex-wrap items-center gap-x-2 gap-y-2.5">
-          <span className="text-accent-coral">[</span> Selected Work{" "}
-          <span className="text-accent-coral">]</span>
+      <motion.div style={{ x: headerX }} className="mb-12 flex flex-col gap-3 sm:flex-row sm:items-baseline sm:justify-between select-none">
+        <div className="flex items-center justify-between w-full sm:w-auto gap-4">
+          <h2 className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
+            <span className="text-accent-coral">[</span> Selected Work{" "}
+            <span className="text-accent-coral">]</span>
+          </h2>
+          <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground tabular-nums sm:hidden">
+            {String(selectedProjects.length).padStart(2, "0")} Projects
+          </span>
+        </div>
+
+        <div className="flex items-center justify-between sm:justify-end gap-6 w-full sm:w-auto">
           <a 
             href="https://github.com/anweshkumarsv" 
             target="_blank" 
             rel="noopener noreferrer" 
-            className="inline-flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-display font-black text-accent hover:text-accent-coral pb-0.5 border-b border-accent/25 hover:border-accent-coral/50 transition-all duration-300 sm:ml-4 pointer-events-auto cursor-none select-none hover:scale-105 active:scale-95 group"
+            className="inline-flex items-center gap-2 text-[10px] md:text-[11px] uppercase tracking-[0.25em] font-display font-black text-accent hover:text-accent-coral pb-0.5 border-b border-accent/25 hover:border-accent-coral/50 transition-all duration-300 pointer-events-auto cursor-none select-none hover:scale-105 active:scale-95 group"
             title="View all projects on GitHub (anweshkumarsv)"
           >
             <svg className="w-3.5 h-3.5 text-accent group-hover:text-accent-coral transition-colors duration-300" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
@@ -70,10 +83,10 @@ export function Work() {
             </svg>
             <span>view all projects</span>
           </a>
-        </h2>
-        <span className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground tabular-nums">
-          {String(selectedProjects.length).padStart(2, "0")} Projects
-        </span>
+          <span className="hidden sm:inline text-[10px] uppercase tracking-[0.3em] text-muted-foreground tabular-nums">
+            {String(selectedProjects.length).padStart(2, "0")} Projects
+          </span>
+        </div>
       </motion.div>
 
       <ul className="border-t hairline">
@@ -150,7 +163,7 @@ export function Work() {
       </ul>
 
       {/* SECTION 2: SIDE PROJECTS */}
-      <motion.div style={{ x: labelX2 }} className="mt-24 mb-16 flex items-baseline justify-between select-none">
+      <motion.div style={{ x: headerX2 }} className="mt-24 mb-16 flex items-baseline justify-between select-none">
         <h2 className="text-[10px] uppercase tracking-[0.3em] text-muted-foreground">
           <span className="text-accent">[</span> Side Projects{" "}
           <span className="text-accent">]</span>
