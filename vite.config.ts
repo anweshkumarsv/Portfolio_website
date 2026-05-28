@@ -10,6 +10,8 @@ export default defineConfig({
     tanstackStart({
       prerender: {
         enabled: true,
+        crawlLinks: false,
+        routes: ['/'],
       },
     }),
     react(),
