@@ -98,7 +98,7 @@ export function Contact() {
             ["Location", "Bengaluru, IN", "#", "accent-moss", false],
             ["LinkedIn", "www.linkedin.com/in/anwesh-kumar-sv", "https://www.linkedin.com/in/anwesh-kumar-sv", "accent-violet", false],
             ["GitHub", "https://github.com/anweshkumarsv", "https://github.com/anweshkumarsv", "accent-citrus", false],
-            ["Resume", "Download PDF", "/Resume_Anwesh_Kumar_S_V.pdf", "accent-coral", true],
+            ["Resume", "View PDF", "/Resume_Anwesh_Kumar_S_V.pdf", "accent-coral", false],
           ].map(([k, v, href, c, isDownload], i) => (
             <motion.div
               key={k as string}

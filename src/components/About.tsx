@@ -171,7 +171,8 @@ export function About() {
               <motion.div 
                 style={{ scaleY: lineScaleY, originY: 0 }}
                 className="absolute left-2.5 top-0 bottom-0 w-px bg-accent-violet"
-              />              {/* Timeline Items */}
+              />
+              {/* Timeline Items */}
               <div className="space-y-16">
                 {timeline.map((item, i) => {
                   const styles = colorStyles[item.c] || colorStyles.accent;

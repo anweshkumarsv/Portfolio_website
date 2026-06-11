@@ -11,7 +11,6 @@ export default defineConfig({
       prerender: {
         enabled: true,
         crawlLinks: false,
-        routes: ['/'],
       },
     }),
     react(),

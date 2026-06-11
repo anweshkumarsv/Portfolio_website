@@ -1,4 +1,5 @@
 import { motion } from "motion/react";
+import { downloadResume } from "@/lib/utils";
 
 export function Nav() {
   return (
@@ -25,7 +26,6 @@ export function Nav() {
           ))}
           <a
             href="/Resume_Anwesh_Kumar_S_V.pdf"
-            download="Resume_Anwesh_Kumar_S_V.pdf"
             target="_blank"
             rel="noopener noreferrer"
             className="link-underline text-accent font-bold hover:text-accent-coral transition-colors"
