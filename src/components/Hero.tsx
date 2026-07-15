@@ -42,7 +42,7 @@ export function Hero() {
           {/* Main Statement */}
           <div className="space-y-4">
             <p className="text-xs uppercase tracking-[0.25em] text-accent font-semibold">
-              B.Tech CSE Student @ DSCE Bengaluru
+              B.Tech CSE @ DSCE Bengaluru
             </p>
             <h2 className="text-3xl md:text-5xl font-display leading-[1.1] tracking-tight text-foreground">
               Building <span className="text-accent-coral">intelligent ML/DL systems</span>, AI models, and deep data insights.
